@@ -1,0 +1,1 @@
+PS C:\Users\flubin\docker\projects> docker run -d -p 6379:6379 -v C:\Users\flubin\docker\projects\Redis\Data:/Data --name redis redis
