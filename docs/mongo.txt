@@ -1,0 +1,1 @@
+PS C:\Users\flubin\docker\projects> docker run -d -p 27017:27017 -v C:\Users\flubin\docker\projects\Mongo\data:/data/db --name mongo mongo
