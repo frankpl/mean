@@ -7,9 +7,11 @@ exports.render = function(req, res) {
     var now = moment().format("MM-DD-YYYY h:mm:ss a");
     req.session.lastVisit = now;
     
-    
+    console.log(req.user);
+    console.log(req.user.fullName);
     res.render('index', {
         title: "Hello World",
-        message: "My MEAN Application at work!"
+        hdrMessage: "My MEAN Application at work!",
+        userFullName: req.user ? req.user.fullName : ''
     });
 };

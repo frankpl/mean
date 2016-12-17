@@ -8,6 +8,7 @@ var path = require('path'),
     moment = require('moment'),
     session = require('express-session'),
     passport = require('passport'),
+    flash = require('connect-flash'),
     redisStore = require('connect-redis')(session);
     
 
@@ -36,6 +37,7 @@ module.exports = function() {
     app.set('views', './app/views');
     app.set('view engine', 'ejs');
 
+    app.use(flash());
     app.use(passport.initialize());
     app.use(passport.session());
     

@@ -55,11 +55,14 @@ var UserSchema = new Schema({
 
 UserSchema.virtual('fullName').get(function() {
     return this.firstName + ' ' + this.lastName;
-}).set(function(fullName) {
-    var splitName = fullName.split(' ');
-    this.firstName = splitName[0] || '';
-    this.lastName = splitName[1] || '';
-});
+ });
+// UserSchema.virtual('fullName').get(function() {
+//     return this.firstName + ' ' + this.lastName;
+// }).set(function(fullName) {
+//     var splitName = fullName.split(' ');
+//     this.firstName = splitName[0] || '';
+//     this.lastName = splitName[1] || '';
+// });
 
 UserSchema.pre('save', function(next) {
     if (this.password) {
@@ -101,5 +104,5 @@ UserSchema.statics.findUniqueUsername = function(username, suffix, callback) {
     });
 };
 
-UserSchema.set('toJSON', {getters: true, virtual: true});
+UserSchema.set('toJSON', {getters: true, virtuals: true});
 mongoose.model('User', UserSchema);
