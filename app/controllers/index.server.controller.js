@@ -8,7 +8,7 @@ exports.render = function(req, res) {
     req.session.lastVisit = now;
     
     console.log(req.user);
-    console.log(req.user.fullName);
+    // console.log(req.user.fullName);
     res.render('index', {
         title: "Hello World",
         hdrMessage: "My MEAN Application at work!",
