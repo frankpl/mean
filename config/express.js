@@ -9,7 +9,7 @@ var path = require('path'),
     session = require('express-session'),
     passport = require('passport'),
     flash = require('connect-flash'),
-    redisStore = require('connect-redis')(session);
+    mongoStore = require('connect-mongo')(session);
     
 
 module.exports = function() {
@@ -28,7 +28,7 @@ module.exports = function() {
     app.use(methodOverride());
     
     app.use(session({
-        store: new redisStore({ host: '127.0.0.1', port:6379, ttl:260}),
+        store: new mongoStore({ url: config.db}),
         saveUninitialized: true,
         resave: true,
         secret: config.sessionSecret
